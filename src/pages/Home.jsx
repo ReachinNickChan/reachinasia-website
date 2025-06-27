@@ -136,7 +136,7 @@ const Home = () => {
           <div className="hero-content">
             <h1>Fuel Innovation by Optimizing Business Development</h1>
             <p>
-              Join 21,500 organizations - including half the Fortune 500 - and fuel innovation by dramatically reducing time and money spent on business development, while simultaneously boosting performance and results.
+              Join > 500 organizations - including Fortune 500 - and fuel innovation by dramatically reducing time and money spent on business development, while simultaneously boosting performance and results.
             </p>
             <div className="btn-group">
               <Link to="/contact" className="btn btn-yellow btn-large">

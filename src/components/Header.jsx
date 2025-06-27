@@ -46,7 +46,7 @@ const Header = () => {
               <img 
                 src={reachinLogo} 
                 alt="Reachin - Business Development Outsourcing" 
-                className="h-10 w-auto"
+                className="h-8 w-auto"
               />
             </Link>
           </div>

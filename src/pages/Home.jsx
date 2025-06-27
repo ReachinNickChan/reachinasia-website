@@ -127,23 +127,25 @@ const Home = () => {
   ];
 
   return (
-    <div className="home-page">
+    <div className="home-page bg-white">
       {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-background"></div>
-        <div className="hero-overlay"></div>
-        <div className="container">
-          <div className="hero-content">
-            <h1>Fuel Innovation by Optimizing Business Development</h1>
-            <p>
+      <section className="relative text-white text-center py-20 md:py-32">
+        <div 
+          className="absolute top-0 left-0 w-full h-full bg-cover bg-center" 
+          style={{ backgroundImage: `url('/src/assets/hero-business-team.jpg')` }}
+        ></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-900 via-blue-800 to-transparent opacity-80"></div>
+        <div className="relative container mx-auto px-4 z-10">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">Fuel Innovation by Optimizing Business Development</h1>
+            <p className="text-xl mb-8">
               Join > 500 organizations - including Fortune 500 - and fuel innovation by dramatically reducing time and money spent on business development, while simultaneously boosting performance and results.
             </p>
-            <div className="btn-group">
-              <Link to="/contact" className="btn btn-yellow btn-large">
-                Get Started
-                <ArrowRight className="ml-2" size={20} />
+            <div className="flex justify-center gap-4">
+              <Link to="/contact" className="bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded-lg hover:bg-yellow-500 transition-transform transform hover:scale-105 inline-flex items-center">
+                Get Started <ArrowRight className="ml-2" size={20} />
               </Link>
-              <Link to="/about" className="btn btn-secondary btn-large">
+              <Link to="/about" className="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-900 transition-colors">
                 Learn More
               </Link>
             </div>
@@ -152,22 +154,24 @@ const Home = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="section section-white">
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2>Not just bigger … better.</h2>
-            <p className="text-large">As the global leader in business development outsourcing, Reachin provides an unrivaled support experience–letting you focus on strategic priorities.</p>
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Not just bigger … better.</h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">As the global leader in business development outsourcing, Reachin provides an unrivaled support experience–letting you focus on strategic priorities.</p>
           </div>
-          <div className="grid grid-3">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className={benefit.colorClass}>
-                <div className="card-header">
-                  <div className="card-icon">
-                    <benefit.icon size={28} />
+              <div key={index} className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 mr-4">
+                    <div className="bg-blue-500 text-white rounded-lg w-12 h-12 flex items-center justify-center">
+                      <benefit.icon size={24} />
+                    </div>
                   </div>
-                  <div className="card-content">
-                    <h3 className="card-title">{benefit.title}</h3>
-                    <p className="card-description">{benefit.description}</p>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">{benefit.title}</h3>
+                    <p className="text-gray-600">{benefit.description}</p>
                   </div>
                 </div>
               </div>
@@ -177,203 +181,14 @@ const Home = () => {
       </section>
 
       {/* How We Help Section */}
-      <section className="section section-light">
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2>How we help.</h2>
-            <p className="text-large">Unlock budget and staff time to reinvest in innovation.</p>
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">How we help.</h2>
+            <p className="mt-4 text-lg text-gray-600">Unlock budget and staff time to reinvest in innovation.</p>
           </div>
-          <div className="grid grid-3">
-            <div className="card">
-              <h3 className="card-title">Save</h3>
-              <ul className="feature-list">
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Save 30-40% vs. traditional methods on business development
-                </li>
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Save 50-90% on lead generation costs
-                </li>
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Bundle services to save even more
-                </li>
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Consolidate several tools into one platform
-                </li>
-              </ul>
-            </div>
-            <div className="card">
-              <h3 className="card-title">Simplify</h3>
-              <ul className="feature-list">
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Complement internal skills with our expert service teams
-                </li>
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Comprehensive, global 24/7 monitoring and management
-                </li>
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Expert-level support on legacy and emerging technologies
-                </li>
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Refocus your staff on innovative initiatives
-                </li>
-              </ul>
-            </div>
-            <div className="card">
-              <h3 className="card-title">Innovate</h3>
-              <ul className="feature-list">
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Focus internal staff on transformation and change
-                </li>
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Reinvest cost savings into new technologies
-                </li>
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Vendor and technology agnostic solutions
-                </li>
-                <li className="feature-item">
-                  <CheckCircle size={20} className="feature-check" />
-                  Design solutions that best meet your needs
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="process-section">
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2>How Reachin energizes, unlocks, and multiplies your potential</h2>
-            <p className="text-large">Our proven 3-step process delivers consistent results</p>
-          </div>
-          <div className="process-grid">
-            {processSteps.map((step, index) => (
-              <div key={index} className="process-step">
-                <div className="process-number">{step.number}</div>
-                <h3 className="process-title">{step.title}</h3>
-                <p className="process-description">{step.description}</p>
-                <div className="process-details">{step.details}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Statistics Section */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2>Trusted by thousands of businesses worldwide</h2>
-            <p className="text-large">Our track record demonstrates consistent success</p>
-          </div>
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-item">
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-                <div className="stat-description">{stat.description}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Customer Testimonials */}
-      <section className="testimonials-section">
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2>Customer Testimonials</h2>
-            <p className="text-large">What our clients say about working with Reachin</p>
-          </div>
-          <div className="grid grid-2">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="testimonial-card">
-                <p className="testimonial-text">"{testimonial.text}"</p>
-                <div className="testimonial-author">{testimonial.author}</div>
-                <div className="testimonial-company">{testimonial.company}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Factors Section */}
-      <section className="section section-white">
-        <div className="container">
-          <div className="text-center mb-5">
-            <h2>Why leading companies choose Reachin</h2>
-            <p className="text-large">Trusted by businesses worldwide for reliable results</p>
-          </div>
-          <div className="grid grid-2">
-            {trustFactors.map((factor, index) => (
-              <div key={index} className="card">
-                <div className="card-header">
-                  <div className="card-icon">
-                    <factor.icon size={28} />
-                  </div>
-                  <div className="card-content">
-                    <h3 className="card-title">{factor.title}</h3>
-                  </div>
-                </div>
-                <ul className="feature-list">
-                  {factor.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="feature-item">
-                      <CheckCircle size={20} className="feature-check" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section section-navy">
-        <div className="container text-center">
-          <h2>Get Started with Reachin</h2>
-          <p className="text-large mb-4">
-            Ready to optimize your business development?
-          </p>
-          <div className="btn-group justify-content-center">
-            <Link to="/contact" className="btn btn-yellow btn-large">
-              Contact Us
-              <ArrowRight className="ml-2" size={20} />
-            </Link>
-            <Link to="/services" className="btn btn-secondary btn-large">
-              Explore Our Services
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <style jsx>{`
-        .ml-2 {
-          margin-left: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-          .btn-group {
-            justify-content: center;
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
-
-export default Home;
-
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Save</h3>
+              <ul className="space-y-4">
+                {['Save 30-40% vs. traditional methods on business development',

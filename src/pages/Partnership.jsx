@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Handshake, Globe, TrendingUp, Users, Award, CheckCircle, Target, DollarSign } from 'lucide-react';
+import { ArrowRight, Globe, TrendingUp, Users, Award, CheckCircle, Target, DollarSign } from 'lucide-react';
 
 const Partnership = () => {
   const partnershipBenefits = [
@@ -119,7 +119,7 @@ const Partnership = () => {
           <div className="text-center">
             <div className="flex justify-center mb-6">
               <div className="bg-white bg-opacity-20 p-4 rounded-full">
-                <Handshake size={48} />
+                <Users size={48} />
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Partnership Program</h1>

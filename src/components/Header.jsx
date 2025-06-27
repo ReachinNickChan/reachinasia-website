@@ -12,10 +12,12 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
+    // Close mobile menu on route change
+    setIsMenuOpen(false);
+    // Add scroll listener
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -34,163 +36,77 @@ const Header = () => {
   };
 
   return (
-    <header className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
-      <div className="container">
-        <div className="navbar-content">
+    <header className={`bg-white shadow-md sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          
           {/* Logo */}
-          <Link to="/" className="navbar-brand">
-            <img 
-              src={reachinLogo} 
-              alt="Reachin - Business Development Outsourcing" 
-              className="navbar-logo"
-            />
-          </Link>
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center">
+              <img 
+                src={reachinLogo} 
+                alt="Reachin - Business Development Outsourcing" 
+                className="h-10 w-auto"
+              />
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
-          <nav className="navbar-nav desktop-nav">
+          <nav className="hidden md:flex md:space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+                className={`text-gray-600 hover:text-blue-600 font-medium transition-colors ${isActive(item.href) ? 'text-blue-600 border-b-2 border-blue-600' : ''}`}
               >
                 {item.name}
               </Link>
             ))}
           </nav>
 
-          {/* CTA Button and Mobile Menu */}
-          <div className="navbar-actions">
-            <Link to="/contact" className="btn btn-primary">
+          {/* Desktop CTA and Mobile Menu Button */}
+          <div className="flex items-center">
+            <Link to="/contact" className="hidden md:inline-flex items-center justify-center bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-700 transition-colors">
               Get Started
             </Link>
-            
-            {/* Mobile Menu Button */}
-            <button
-              className="mobile-menu-btn"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            <div className="md:hidden ml-4">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="mobile-nav">
-            <nav className="mobile-nav-content">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`mobile-nav-link ${isActive(item.href) ? 'active' : ''}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="mobile-nav-actions">
-                <Link
-                  to="/contact"
-                  className="btn btn-primary btn-large"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Get Started
-                </Link>
-              </div>
-            </nav>
-          </div>
-        )}
+        </div>
       </div>
 
-      <style jsx>{`
-        .navbar-actions {
-          display: flex;
-          align-items: center;
-          gap: 1.5rem;
-        }
-
-        .mobile-menu-btn {
-          display: none;
-          background: none;
-          border: none;
-          color: var(--medium-text);
-          cursor: pointer;
-          padding: 0.75rem;
-          border-radius: 8px;
-          transition: all var(--transition-fast);
-        }
-
-        .mobile-menu-btn:hover {
-          background-color: var(--background-light);
-          color: var(--dark-text);
-        }
-
-        .mobile-nav {
-          border-top: 1px solid var(--border-light);
-          background: var(--white);
-          box-shadow: var(--shadow-md);
-          border-radius: 0 0 16px 16px;
-        }
-
-        .mobile-nav-content {
-          padding: 1.5rem 0;
-        }
-
-        .mobile-nav-link {
-          display: block;
-          color: var(--medium-text);
-          text-decoration: none;
-          font-weight: 500;
-          padding: 1rem 0;
-          border-bottom: 1px solid var(--border-light);
-          transition: color var(--transition-fast);
-          font-size: 1.125rem;
-        }
-
-        .mobile-nav-link:last-of-type {
-          border-bottom: none;
-        }
-
-        .mobile-nav-link:hover,
-        .mobile-nav-link.active {
-          color: var(--primary-blue);
-        }
-
-        .mobile-nav-actions {
-          padding-top: 1.5rem;
-          border-top: 1px solid var(--border-light);
-          margin-top: 1.5rem;
-        }
-
-        .desktop-nav {
-          display: flex;
-        }
-
-        @media (max-width: 768px) {
-          .desktop-nav {
-            display: none;
-          }
-
-          .mobile-menu-btn {
-            display: block;
-          }
-
-          .navbar-content {
-            gap: 1rem;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .navbar-content {
-            padding: 1rem 0;
-          }
-        }
-      `}</style>
+      {/* Mobile Navigation Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`block px-3 py-2 rounded-md text-base font-medium ${isActive(item.href) ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+             <div className="pt-4 pb-2 border-t border-gray-200">
+                <Link to="/contact" className="w-full flex items-center justify-center bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-700 transition-colors">
+                    Get Started
+                </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
 
 export default Header;
-

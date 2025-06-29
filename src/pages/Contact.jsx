@@ -54,19 +54,17 @@ const Contact = () => {
       icon: Mail,
       title: 'Email Us',
       details: [
-        'ir@reachinasia.com (APAC Enquiry)',
-        'ir@reachinglobal.com (Global Enquiry)',
+        'sales@reachinasia.com (Global Enquiry)',
         'partnerships@reachinasia.com (Partnership)'
       ]
     },
     {
       icon: Phone,
-      title: 'Call Us',
+      title: 'Contact Us',
       details: [
-        '+852 XXXX XXXX (Hong Kong)',
-        '+86 XXXX XXXX (China)',
-        '+1 XXX XXX XXXX (Global)'
-      ]
+        '+852 9553 6260 (Whatsapp - Hong Kong)',
+        'ccl-nickchan (Wechat - China)',
+        ]
     },
     {
       icon: MapPin,

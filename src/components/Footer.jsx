@@ -53,11 +53,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-300">
                 <Mail size={16} className="mr-2 flex-shrink-0" />
-                <span className="text-sm">ir@reachinasia.com (APAC)</span>
+                <span className="text-sm">sales@reachinasia.com (Global)</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <Mail size={16} className="mr-2 flex-shrink-0" />
-                <span className="text-sm">ir@reachinglobal.com (Global)</span>
+                <span className="text-sm">Support@reachinglobal.com (Customer Service)</span>
               </div>
             </div>
             <h3 className="text-lg font-semibold mt-6 mb-4 tracking-wider uppercase">Follow Us</h3>
